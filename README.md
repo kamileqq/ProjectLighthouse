@@ -1,3 +1,7 @@
+# Sraniegaming server
+
+meow
+
 # Project Lighthouse
 
 Project Lighthouse is a clean-room, open-source custom server for LittleBigPlanet. This is a project conducted by
