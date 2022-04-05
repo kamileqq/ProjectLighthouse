@@ -2,9 +2,10 @@ div.pageContainer {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-	background-color: rgb(6,40,37);
-	background-image: linear-gradient(0deg, rgba(6,40,37,1) 0%, rgba(25,12,65,1) 100%);
-    color: rgb(117, 117, 117);
+    background-color: #000000;
+    background-image: url("cardboard.png");
+    background-repeat: repeat;
+    color: grey;
 }
 
 div.main {
@@ -100,15 +101,17 @@ div.cardStatsUnderTitle > span {
 
 body {
     background: #000;
-    background: rgb(0 0 0);
+    color: #1CA7D0
 }
 
 div.ui.menu {
     background: #202020;
+    background-image: url("sponge.png");
+    background-repeat: repeat;
 }
 
 div.ui.attached.menu:not(.tabular) {
-    border: 1px solid #000000;
+    border: 1px solid #ffffff;
 }
 
 div.ui.menu .item {
@@ -116,8 +119,7 @@ div.ui.menu .item {
     transition: background .4s ease, color .4s ease, -webkit-box-shadow .4s ease;
     transition: background .4s ease, color .4s ease, -webkit-box-shadow .4s ease;
     transition: background .4s ease, color .4s ease, -webkit-box-shadow .4s ease;
-	background: rgba(255,0,0,1);
-	background-image: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,0,255,1) 50%, rgba(0,255,255,1) 100%); 
+	color: #1CA7D0;
 }
 
 a {
@@ -130,6 +132,6 @@ div.ui.segment {
 }
 
 div.ui.input {
-    color: rgb(0,0,0);
+	color: #007CA3;
 }
 /*#End of Dark Mode style*/
