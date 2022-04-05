@@ -2,7 +2,8 @@ div.pageContainer {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #000000;
+	background-color: rgb(6,40,37);
+	background-image: linear-gradient(0deg, rgba(6,40,37,1) 0%, rgba(25,12,65,1) 100%);
     color: rgb(117, 117, 117);
 }
 
@@ -99,7 +100,7 @@ div.cardStatsUnderTitle > span {
 
 body {
     background: #000;
-    color: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,0,255,1) 50%, rgba(0,255,255,1) 100%); 
+    background: rgb(0 0 0);
 }
 
 div.ui.menu {
@@ -115,7 +116,8 @@ div.ui.menu .item {
     transition: background .4s ease, color .4s ease, -webkit-box-shadow .4s ease;
     transition: background .4s ease, color .4s ease, -webkit-box-shadow .4s ease;
     transition: background .4s ease, color .4s ease, -webkit-box-shadow .4s ease;
-	color: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,0,255,1) 50%, rgba(0,255,255,1) 100%); 
+	background: rgba(255,0,0,1);
+	background-image: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,0,255,1) 50%, rgba(0,255,255,1) 100%); 
 }
 
 a {
@@ -128,7 +130,6 @@ div.ui.segment {
 }
 
 div.ui.input {
-    color: rgb(255,0,0);
-    color: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,0,255,1) 50%, rgba(0,255,255,1) 100%); 
+    color: rgb(0,0,0);
 }
 /*#End of Dark Mode style*/
