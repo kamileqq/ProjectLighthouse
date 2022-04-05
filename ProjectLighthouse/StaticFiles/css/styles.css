@@ -1,11 +1,13 @@
+body {
+    background-color: black;
+    background-image: url("cardboard.png");
+    background-repeat: repeat;
+}
+
 div.pageContainer {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #000000;
-    background-image: url("cardboard.png");
-    background-repeat: repeat;
-    color: grey;
 }
 
 div.main {
@@ -13,7 +15,7 @@ div.main {
 }
 
 #lighthouse-debug-info > p {
-    margin-bottom: 1px;
+    margin-bottom: 10px;
 }
 
 canvas.photo-subjects {
@@ -96,42 +98,3 @@ div.cardStatsUnderTitle > span {
 /*#endregion User cards*/
 
 /*#endregion Cards*/
-
-/*#Start of Dark Mode style*/
-
-body {
-    background: #000;
-    color: #1CA7D0
-}
-
-div.ui.menu {
-    background: #202020;
-    background-image: url("sponge.png");
-    background-repeat: repeat;
-}
-
-div.ui.attached.menu:not(.tabular) {
-    border: 1px solid #ffffff;
-}
-
-div.ui.menu .item {
-    -webkit-transition: background .4s ease, color .4s ease, -webkit-box-shadow .4s ease;
-    transition: background .4s ease, color .4s ease, -webkit-box-shadow .4s ease;
-    transition: background .4s ease, color .4s ease, -webkit-box-shadow .4s ease;
-    transition: background .4s ease, color .4s ease, -webkit-box-shadow .4s ease;
-	color: #1CA7D0;
-}
-
-a {
-    color: #cdcdcd;
-    text-decoration: none;
-}
-
-div.ui.segment {
-    background: #323232;
-}
-
-div.ui.input {
-	color: #007CA3;
-}
-/*#End of Dark Mode style*/
