@@ -1,5 +1,4 @@
 @using LBPUnion.ProjectLighthouse.Types
-@using LBPUnion.ProjectLighthouse.Types.Levels
 @model LBPUnion.ProjectLighthouse.Types.Photo
 
 
@@ -18,18 +17,6 @@
         <b>
             <a href="/user/@Model.Creator?.UserId">@Model.Creator?.Username</a>
         </b>
-        @if (Model.SlotId != 0 && Model.SlotType == SlotType.User && Model.SlotName != null)
-        {
-            <span>
-                 in level
-                 <b>
-                     <a href="/slot/@Model.SlotId">@Model.SlotName</a>
-                 </b>
-            </span>
-        } else if (Model.SlotType == SlotType.Developer)
-        {
-            <span>in a story mode level</span>
-        }
     </i>
 </p>
 

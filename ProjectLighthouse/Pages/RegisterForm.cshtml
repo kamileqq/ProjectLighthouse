@@ -34,11 +34,11 @@
 
 <form class="ui form" onsubmit="return onSubmit(this)" method="post">
     @Html.AntiForgeryToken()
-	<h3>Remember to make your <a style="color: green">Username</a> the excat same as your <a style="color: red">PSN ID</a> or <a style="color: blue">RPCN ID</a>! Made a mistake? Please contact an admin</h3>
+
     <div class="field">
         <label>Username</label>
         <div class="ui left icon input">
-            <input type="text" name="username" id="text" placeholder="Username" pattern="^[a-zA-Z0-9_.-]*$" minlength="3" maxlength="16" style="background-color: #a2a2a2;">
+            <input type="text" name="username" id="text" placeholder="Username" pattern="^[a-zA-Z0-9_.-]*$" minlength="3" maxlength="16">
             <i class="user icon"></i>
         </div>
     </div>
@@ -57,7 +57,7 @@
     <div class="field">
         <label>Password</label>
         <div class="ui left icon input">
-            <input type="password" id="password" placeholder="Password" style="background-color: #a2a2a2;">
+            <input type="password" id="password" placeholder="Password">
             <input type="hidden" name="password" id="password-submit">
             <i class="lock icon"></i>
         </div>
@@ -66,7 +66,7 @@
     <div class="field">
         <label>Confirm Password</label>
         <div class="ui left icon input">
-            <input type="password" id="confirmPassword" placeholder="Confirm Password" style="background-color: #a2a2a2;">
+            <input type="password" id="confirmPassword" placeholder="Confirm Password">
             <input type="hidden" name="confirmPassword" id="confirm-submit">
             <i class="lock icon"></i>
         </div>
