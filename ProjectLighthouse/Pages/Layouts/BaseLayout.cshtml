@@ -34,11 +34,11 @@
 <head>
     @if (Model.Title == string.Empty)
     {
-        <title>Sranie Gaming</title>
+        <title>Sranie Gaming LBP Server</title>
     }
     else
     {
-        <title>Sranie Gaming - @Model.Title</title>
+        <title>Sranie Gaming LBP Server - @Model.Title</title>
     }
     <link rel="stylesheet" type="text/css" href="~/css/styles.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css">
@@ -75,7 +75,7 @@
         </script>
     }
 </head>
-<body style="background-color:black;">
+<body style="margin: 0;">
 <div class="pageContainer">
     <header class="lighthouse-header">
         <div class="ui attached menu">
@@ -151,20 +151,48 @@
                 <h1>@Model.Title</h1>
             }
             @RenderBody()
-            <div style="height: 60px;"></div> @* makes it look nicer *@
+            <div style="height: 50px;"></div> @* makes it look nicer *@
         </div>
     </div>
     <footer>
-        <div class="ui black attached inverted segment">
+        <div class="ui attached inverted segment">
             <div class="ui container">
-                <p>Please consider donating (it's not required to play, but highly appreciated)</p>
+                <button type="button" class="ui inverted button collapsible">
+                                             <b>Credits</b>
+                                             </button>
+                                             
+                                             <div style="display:none" id="credits-of-lighthouse-team">
+                                                <br>
+                                                <p>The Project Lighthouse team</p>
+                                                <p>jvyden, LumaLivy, alkalinethunder, CommandGenius, turecross321, frickinfire, Zandyyy, Beyley, Zandyyy, Arcadius2006, FridiNaTor1 and m88youngling</p>
+                                             </div>                                                         
             </div>
         </div>
-        @if (ServerStatics.IsDebug)
-        {
-            <div class="ui red attached inverted segment">
+        <script>
+                const collapsible = document.getElementsByClassName("collapsible");
+                
+                for (let i = 0; i < collapsible.length; i++) 
+                {
+                  collapsible[i].addEventListener("click", function() 
+                  {
+                    this.classList.toggle("active");
+                    const content = this.nextElementSibling;
+                    if (content.style.display === "block") 
+                    {
+                      content.style.display = "none";
+                    } 
+                    else 
+                    {
+                      content.style.display = "block";
+                    }
+                  });
+                }
+            </script>                                                                           
+            <div class="ui green attached inverted segment">
                 <div class="ui container">
-                    <button type="button" class="ui inverted button collapsible">
+<!-- Removed this debug info, I think the button is broken since I copied the code for it, for the credits
+	 I only have debug on if nessasary, not normally, so I will just give a warning that it's running in debug
+			  <button type="button" class="ui inverted button collapsible">
                         <b>Show/Hide Debug Info</b>
                     </button>
 
@@ -176,6 +204,8 @@
                         <p>Model.User.UserId: @(Model.User?.UserId.ToString() ?? "(not logged in)")</p>
                         <p>Render time: ~@(TimestampHelper.TimestampMillis - timeStarted)ms</p>
                     </div>
+-->
+					<h3><a style="color: black">Update! Server will be kept open! Please enjoy :)</a></h3>
                 </div>
             </div>
 
@@ -199,7 +229,6 @@
                   });
                 }
             </script>
-        }
     </footer>
 </div>
 </body>

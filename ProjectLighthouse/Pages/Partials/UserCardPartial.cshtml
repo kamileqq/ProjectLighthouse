@@ -1,3 +1,4 @@
+@using LBPUnion.ProjectLighthouse.Types.Settings
 @model LBPUnion.ProjectLighthouse.Types.User
 
 @{
@@ -30,7 +31,7 @@
         <div class="cardStatsUnderTitle">
             <i class="pink heart icon" title="Hearts"></i> <span>@Model.Hearts</span>
             <i class="blue comment icon" title="Comments"></i> <span>@Model.Comments</span>
-            <i class="green upload icon" title="Uploaded Levels"></i><span>@Model.UsedSlots</span>
+            <i class="green upload icon" title="Uploaded Levels"></i><span>@Model.UsedSlots / @ServerSettings.Instance.EntitledSlots</span>
             <i class="purple camera icon" title="Uploaded Photos"></i><span>@Model.PhotosByMe</span>
         </div>
     </div>

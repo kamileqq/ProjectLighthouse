@@ -7,11 +7,14 @@
     Layout = "Layouts/BaseLayout";
     Model.ShowTitleInPage = false;
 }
-<h1>Welcome to <b>Project Lighthouse</b>!</h1>
+<h1>Welcome to <b>Sranie Gaming LBP Server</b>!</h1>
+<h4>Don't have an account? You'll need to register using your PSN or RPCSN nickname.</h4>
+<h5>If you have problems with the server or making an account then dm me on discord (Znowu mam bana no ja nie moge v2#4634)</h5>
+<p>If you would like to help keep the server up, check out the <a href="/donate">Donation</a> Page
 
 @if (Model.User != null)
 {
-    <p>You are currently logged in as <b>@Model.User.Username</b>.</p>
+    <p>You are currently logged in as <b>@Model.User.Username</b> Welcome!.</p>
     if (ServerSettings.Instance.UseExternalAuth && Model.AuthenticationAttemptsCount > 0)
     {
         <p>
