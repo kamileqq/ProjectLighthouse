@@ -69,7 +69,7 @@
     </ItemGroup>
 
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-        <Exec Command="git describe --long --always --dirty --exclude=\* --abbrev=8 &gt; &quot;$(ProjectDir)/gitVersion.txt&quot;" />
+        <Exec Command="git describe --long --always --exclude=\* --abbrev=8 &gt; &quot;$(ProjectDir)/gitVersion.txt&quot;" />
         <Exec Command="git branch --show-current &gt; &quot;$(ProjectDir)/gitBranch.txt&quot;" />
         <Exec Command="git remote -v &gt; &quot;$(ProjectDir)/gitRemotes.txt&quot;" />
         <Exec Command="git log --branches --not --remotes --oneline &gt; &quot;$(ProjectDir)/gitUnpushed.txt&quot;" />
