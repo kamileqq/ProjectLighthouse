@@ -2,8 +2,9 @@ div.pageContainer {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #000000;
-    color: grey;
+    background: rgb(34,21,41);
+    background: linear-gradient(0deg, rgba(19, 12, 23,1) 0%, rgba(0,0,0,1) 100%);
+    color: #ababab;
 }
 
 div.main {
@@ -98,16 +99,16 @@ div.cardStatsUnderTitle > span {
 /*#Start of Dark Mode style*/
 
 body {
-    background: #000;
+    background: #ffffff;
     color: #db99ff
 }
 
 div.ui.menu {
-    background: #202020;
+    background: #0f0f0f;
 }
 
 div.ui.attached.menu:not(.tabular) {
-    border: 1px solid #000000;
+    border: 3px solid #000000;
 }
 
 div.ui.menu .item {
@@ -119,12 +120,12 @@ div.ui.menu .item {
 }
 
 a {
-    color: #cdcdcd;
+    color: #0f0f0f;
     text-decoration: none;
 }
 
 div.ui.segment {
-    background: #323232;
+    background: #0f0f0f;
 }
 
 div.ui.input {
