@@ -44,10 +44,6 @@
         <EmbeddedResource Include="gitVersion.txt">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </EmbeddedResource>
-        <None Remove="StaticFiles" />
-        <EmbeddedResource Include="StaticFiles">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </EmbeddedResource>
         <None Remove="gitBranch.txt" />
         <EmbeddedResource Include="gitBranch.txt">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
