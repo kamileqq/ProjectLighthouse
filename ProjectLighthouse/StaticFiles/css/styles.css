@@ -2,9 +2,6 @@ div.pageContainer {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: rgb(34,21,41);
-    background: linear-gradient(0deg, rgba(19, 12, 23,1) 0%, rgba(0,0,0,1) 100%);
-    color: #ababab;
 }
 
 div.main {
@@ -96,39 +93,19 @@ div.cardStatsUnderTitle > span {
 
 /*#endregion Cards*/
 
-/*#Start of Dark Mode style*/
+/*#region Comments*/
 
-body {
-    background: #ffffff;
-    color: #db99ff
+.comment {
+    width: 100%;
+    display: inline-block;
+    text-align: left;
 }
 
-div.ui.menu {
-    background: #0f0f0f;
+.voting {
+    text-align: center;
+    display: inline-block;
+    float: left;
+    margin-right: 0.5em;
 }
 
-div.ui.attached.menu:not(.tabular) {
-    border: 3px solid #000000;
-}
-
-div.ui.menu .item {
-    -webkit-transition: background .4s ease, color .4s ease, -webkit-box-shadow .4s ease;
-    transition: background .4s ease, color .4s ease, -webkit-box-shadow .4s ease;
-    transition: background .4s ease, color .4s ease, -webkit-box-shadow .4s ease;
-    transition: background .4s ease, color .4s ease, -webkit-box-shadow .4s ease;
-	color: #dd99ff;
-}
-
-a {
-    color: #0f0f0f;
-    text-decoration: none;
-}
-
-div.ui.segment {
-    background: #0f0f0f;
-}
-
-div.ui.input {
-	color: rgb(218, 55, 255);
-}
-/*#End of Dark Mode style*/
+/*#endregion Comments*/
