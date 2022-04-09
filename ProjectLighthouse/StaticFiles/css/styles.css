@@ -3,8 +3,22 @@ div.pageContainer {
     flex-direction: column;
     min-height: 100vh;
     background: rgb(34,21,41);
-    background: linear-gradient(0deg, rgba(19, 12, 23,1) 0%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(19, 12, 23,1) 50%, rgba(0,0,0,1) 100%);
+    background-size: 400% 400%;
+    animation: gradient 40s ease infinite
     color: #ababab;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+     }
+     50% {
+        background-position: 100% 50%;
+     }
+     100% {
+        background-position: 0% 50%;
+     }
 }
 
 div.main {
