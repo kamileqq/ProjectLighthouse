@@ -49,6 +49,10 @@
                 @slotName
             </h1>
         }
+        @if (Model.TeamPick)
+        {
+            <i class="purple award down icon" title="TeamPick"></i>
+        }
         <div class="cardStatsUnderTitle">
             <i class="pink heart icon" title="Hearts"></i> <span>@Model.Hearts</span>
             <i class="blue play icon" title="Plays"></i> <span>@Model.Plays</span>
@@ -60,6 +64,7 @@
                 <i class="yellow star icon" title="LBP1 Stars"></i>
                 <span>@Model.RatingLBP1</span>
             }
+
         </div>
         <p>
             <i>Created by <a href="/user/@Model.Creator?.UserId">@Model.Creator?.Username</a> for @Model.GameVersion.ToPrettyString()</i>
