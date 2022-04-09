@@ -37,21 +37,25 @@
         <img class="cardIcon slotCardIcon" src="/gameAssets/@iconHash" style="min-width: @(size)px; width: @(size)px; height: @(size)px">
     </div>
     <div class="cardStats">
-        @if (Model.TeamPick)
-        {
-            <a class="purple award down icon" title="TeamPick"></a>
-        }
         @if (showLink)
         {
-            <h2>
-                <a href="~/slot/@Model.SlotId">@slotName</a>
-            </h2>
+        <h2>
+            @if (Model.TeamPick)
+            {
+                <i class="purple award down icon" title="TeamPick"></i>
+            }
+            <a href="~/slot/@Model.SlotId">@slotName</a>
+        </h2>
         }
         else
         {
-            <h1>
-                @slotName
-            </h1>
+        <h1>
+            @if (Model.TeamPick)
+            {
+                <i class="purple award down icon" title="TeamPick"></i>
+            }
+            @slotName
+        </h1>
         }
         <div class="cardStatsUnderTitle">
             <i class="pink heart icon" title="Hearts"></i> <span>@Model.Hearts</span>
