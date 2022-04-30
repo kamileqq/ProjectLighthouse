@@ -150,3 +150,19 @@ div.ui.input {
 	color: rgb(218, 55, 255);
 }
 /*#End of Dark Mode style*/
+/*#region Comments*/
+
+.comment {
+    width: 100%;
+    display: inline-block;
+    text-align: left;
+}
+
+.voting {
+    text-align: center;
+    display: inline-block;
+    float: left;
+    margin-right: 0.5em;
+}
+
+/*#endregion Comments*/
