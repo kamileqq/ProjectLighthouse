@@ -1,0 +1,45 @@
+#nullable enable
+using JetBrains.Annotations;
+using LBPUnion.ProjectLighthouse.Helpers;
+using LBPUnion.ProjectLighthouse.PlayerData.Profiles;
+using LBPUnion.ProjectLighthouse.Servers.Website.Pages.Layouts;
+using LBPUnion.ProjectLighthouse.Types;
+using LBPUnion.ProjectLighthouse.Types.News;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
+namespace LBPUnion.ProjectLighthouse.Servers.Website.Pages;
+
+public class LandingPage : BaseLayout
+{
+
+    public int AuthenticationAttemptsCount;
+    public List<User> PlayersOnline = new();
+
+    public int PlayersOnlineCount;
+    public LandingPage(Database database) : base(database)
+    {}
+
+    public NewsEntry? NewsEntry;
+
+    [UsedImplicitly]
+    public async Task<IActionResult> OnGet()
+    {
+        User? user = this.Database.UserFromWebRequest(this.Request);
+        if (user != null && user.PasswordResetRequired) return this.Redirect("~/passwordResetRequired");
+
+        this.PlayersOnlineCount = await StatisticsHelper.RecentMatches();
+
+        if (user != null)
+            this.AuthenticationAttemptsCount = await this.Database.AuthenticationAttempts.Include
+                    (a => a.GameToken)
+                .CountAsync(a => a.GameToken.UserId == user.UserId);
+
+        List<int> userIds = await this.Database.LastContacts.Where(l => TimeHelper.Timestamp - l.Timestamp < 300).Select(l => l.UserId).ToListAsync();
+
+        this.PlayersOnline = await this.Database.Users.Where(u => userIds.Contains(u.UserId)).ToListAsync();
+
+        this.NewsEntry = await this.Database.NewsEntries.OrderBy(n => n.Timestamp).FirstOrDefaultAsync();
+        return this.Page();
+    }
+}

@@ -3,7 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using LBPUnion.ProjectLighthouse.Administration.Reports;
+using LBPUnion.ProjectLighthouse.Configuration;
 using LBPUnion.ProjectLighthouse.Helpers;
+using LBPUnion.ProjectLighthouse.Levels;
+using LBPUnion.ProjectLighthouse.Levels.Categories;
+using LBPUnion.ProjectLighthouse.PlayerData;
+using LBPUnion.ProjectLighthouse.PlayerData.Profiles;
+using LBPUnion.ProjectLighthouse.PlayerData.Profiles.Email;
+using LBPUnion.ProjectLighthouse.PlayerData.Reviews;
+using LBPUnion.ProjectLighthouse.Tickets;
 using LBPUnion.ProjectLighthouse.Types;
 using LBPUnion.ProjectLighthouse.Types.Activity;
 using LBPUnion.ProjectLighthouse.Types.Categories;
@@ -50,7 +59,7 @@ public class Database : DbContext
     public DbSet<EmailSetToken> EmailSetTokens { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
-        => options.UseMySql(ServerSettings.Instance.DbConnectionString, MySqlServerVersion.LatestSupportedServerVersion);
+        => options.UseMySql(ServerConfiguration.Instance.DbConnectionString, MySqlServerVersion.LatestSupportedServerVersion);
 
     #nullable enable
     public async Task<User> CreateUser(string username, string password, string? emailAddress = null)
@@ -86,10 +95,10 @@ public class Database : DbContext
 
         await this.SaveChangesAsync();
 
-        if (emailAddress != null && ServerSettings.Instance.SMTPEnabled)
+        if (emailAddress != null && ServerConfiguration.Instance.Mail.MailEnabled)
         {
             string body = "An account for Project Lighthouse has been registered with this email address.\n\n" +
-                          $"You can login at {ServerSettings.Instance.ExternalUrl}.";
+                          $"You can login at {ServerConfiguration.Instance.ExternalUrl}.";
 
             SMTPHelper.SendEmail(emailAddress, "Project Lighthouse Account Created: " + username, body);
         }
@@ -104,7 +113,7 @@ public class Database : DbContext
 
         GameToken gameToken = new()
         {
-            UserToken = HashHelper.GenerateAuthToken(),
+            UserToken = CryptoHelper.GenerateAuthToken(),
             User = user,
             UserId = user.UserId,
             UserLocation = userLocation,
