@@ -37,4 +37,8 @@
         </Content>
         <ProjectReference Include="..\ProjectLighthouse\ProjectLighthouse.csproj"/>
     </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="Tests\SerializerTests.cs"/>
+    </ItemGroup>
 </Project>

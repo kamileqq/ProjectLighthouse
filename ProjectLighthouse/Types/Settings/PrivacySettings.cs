@@ -1,4 +1,4 @@
-using LBPUnion.ProjectLighthouse.Serialization;
+using System.Xml.Serialization;
 
 namespace LBPUnion.ProjectLighthouse.Types.Settings;
 

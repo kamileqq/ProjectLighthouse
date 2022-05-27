@@ -1,4 +1,3 @@
-using LBPUnion.ProjectLighthouse.Serialization;
 using LBPUnion.ProjectLighthouse.Types.News;
 using Microsoft.AspNetCore.Mvc;
 
