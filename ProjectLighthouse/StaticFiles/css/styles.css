@@ -2,23 +2,6 @@ div.pageContainer {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: rgb(34,21,41);
-    background: linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(19, 12, 23,1) 50%, rgba(0,0,0,1) 100%);
-    background-size: 400% 400%;
-    animation: gradient 40s ease infinite
-    color: #ababab;
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-     }
-     50% {
-        background-position: 100% 50%;
-     }
-     100% {
-        background-position: 0% 50%;
-     }
 }
 
 div.main {
@@ -110,46 +93,6 @@ div.cardStatsUnderTitle > span {
 
 /*#endregion Cards*/
 
-/*#Start of Dark Mode style*/
-
-body {
-    background: #ffffff;
-    color: #db99ff
-}
-
-div.ui.menu {
-    background: #0f0f0f;
-}
-
-div.ui.attached.menu:not(.tabular) {
-    border: 1px solid #000000;
-}
-
-div.ui.menu .item {
-    transition: 0.3s;
-    font-size: 100%;
-	color: #dd99ff;
-}
-
-div.ui.menu .item:hover {
-    color: white;
-    background-color: #dd99ff;
-    font-size: 130%;
-}
-
-a {
-    color: #0f0f0f;
-    text-decoration: none;
-}
-
-div.ui.segment {
-    background: #0f0f0f;
-}
-
-div.ui.input {
-	color: rgb(218, 55, 255);
-}
-/*#End of Dark Mode style*/
 /*#region Comments*/
 
 .comment {

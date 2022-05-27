@@ -1,5 +1,5 @@
-using System;
 using System.Xml.Serialization;
+using LBPUnion.ProjectLighthouse.Serialization;
 
 namespace LBPUnion.ProjectLighthouse.PlayerData.Profiles;
 
