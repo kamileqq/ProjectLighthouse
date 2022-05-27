@@ -1,0 +1,29 @@
+@page "/debug/activityLogPage"
+@using LBPUnion.ProjectLighthouse.Types.Activity
+@model LBPUnion.ProjectLighthouse.Pages.Debug.ActivityLogPage
+
+@{
+    Layout = "Layouts/BaseLayout";
+    Model.Title = "Debug - Activity Log";
+}
+
+@foreach (ActivityEntry entry in Model.Entries)
+{
+    DateTimeOffset timestamp = DateTimeOffset.FromUnixTimeSeconds(entry.Timestamp / 1000);
+    <div class="ui blue segment">
+
+        <h2>Entry @entry.EntryId</h2>
+        <p>
+            <b>Activity Type:</b> @entry.Type
+        </p>
+        <p>
+            <b>Related ID:</b> @entry.RelatedId
+        </p>
+        <p>
+            <b>User ID:</b> @entry.UserId
+        </p>
+        <p>
+            <i>@timestamp.ToString("MM/dd/yyyy @ h:mm tt") UTC</i>
+        </p>
+    </div>
+}

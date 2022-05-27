@@ -5,8 +5,10 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using LBPUnion.ProjectLighthouse.Helpers;
 using LBPUnion.ProjectLighthouse.Types;
+using LBPUnion.ProjectLighthouse.Types.Activity;
 using LBPUnion.ProjectLighthouse.Types.Categories;
 using LBPUnion.ProjectLighthouse.Types.Levels;
+using LBPUnion.ProjectLighthouse.Types.News;
 using LBPUnion.ProjectLighthouse.Types.Profiles;
 using LBPUnion.ProjectLighthouse.Types.Profiles.Email;
 using LBPUnion.ProjectLighthouse.Types.Reports;
@@ -40,6 +42,8 @@ public class Database : DbContext
     public DbSet<RatedReview> RatedReviews { get; set; }
     public DbSet<UserApprovedIpAddress> UserApprovedIpAddresses { get; set; }
     public DbSet<DatabaseCategory> CustomCategories { get; set; }
+    public DbSet<ActivityEntry> ActivityLog { get; set; }
+    public DbSet<NewsEntry> NewsEntries { get; set; }
     public DbSet<Reaction> Reactions { get; set; }
     public DbSet<GriefReport> Reports { get; set; }
     public DbSet<EmailVerificationToken> EmailVerificationTokens { get; set; }

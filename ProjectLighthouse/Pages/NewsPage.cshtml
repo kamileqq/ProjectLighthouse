@@ -1,0 +1,15 @@
+@page "/news/{id:int}"
+@model LBPUnion.ProjectLighthouse.Pages.NewsPage
+
+@{
+    Layout = "Layouts/BaseLayout";
+    Model.Title = Model.NewsEntry.Title;
+    Model.Description = Model.NewsEntry.Summary;
+
+    string[] split = Model.NewsEntry.Text.Split("\n\n");
+}
+
+@foreach (string paragraph in split)
+{
+    <p>@paragraph</p>
+}

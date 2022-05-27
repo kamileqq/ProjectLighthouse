@@ -11,6 +11,7 @@ using LBPUnion.ProjectLighthouse.Helpers;
 using LBPUnion.ProjectLighthouse.Logging;
 using LBPUnion.ProjectLighthouse.Serialization;
 using LBPUnion.ProjectLighthouse.Types;
+using LBPUnion.ProjectLighthouse.Types.Activity;
 using LBPUnion.ProjectLighthouse.Types.Settings;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -104,6 +105,20 @@ public class PhotosController : ControllerBase
                 Color = WebhookHelper.UnionColor,
             }
         );
+
+        this.database.ActivityLog.Add
+        (
+            new ActivityEntry
+            {
+                User = user,
+                UserId = user.UserId,
+                Timestamp = TimestampHelper.TimestampMillis,
+                Type = EventType.UploadPhoto,
+                RelatedId = photo.PhotoId,
+            }
+        );
+
+        await this.database.SaveChangesAsync();
 
         return this.Ok();
     }

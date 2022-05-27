@@ -29,6 +29,7 @@ gitRemotes.txt
 gitUnpushed.txt
 logs/*
 npTicket*
+recent-activity.xml
 
 # MSBuild stuff
 bin/

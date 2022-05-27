@@ -42,3 +42,17 @@ else
         <a href="/user/@user.UserId" title="@user.Status.ToString()">@user.Username</a>
     }
 }
+
+<h2>Latest News</h2>
+@if (Model.NewsEntry == null)
+{
+    <p>There is no news currently.</p>
+}
+else
+{
+    <div class="ui segment">
+        <h3>@Model.NewsEntry.Title</h3>
+        <p>@Model.NewsEntry.Summary</p>
+        <a href="/news/@Model.NewsEntry.NewsId">Read more...</a>
+    </div>
+}

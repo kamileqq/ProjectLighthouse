@@ -18,6 +18,31 @@ namespace ProjectLighthouse.Migrations
                 .HasAnnotation("ProductVersion", "6.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("LBPUnion.ProjectLighthouse.Types.Activity.ActivityEntry", b =>
+                {
+                    b.Property<int>("EntryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("RelatedId")
+                        .HasColumnType("int");
+
+                    b.Property<long>("Timestamp")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("EntryId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ActivityLog");
+                });
+
             modelBuilder.Entity("LBPUnion.ProjectLighthouse.Types.AuthenticationAttempt", b =>
                 {
                     b.Property<int>("AuthenticationAttemptId")
@@ -349,6 +374,32 @@ namespace ProjectLighthouse.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("VisitedLevels");
+                });
+
+            modelBuilder.Entity("LBPUnion.ProjectLighthouse.Types.News.NewsEntry", b =>
+                {
+                    b.Property<int>("NewsId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Category")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Summary")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("longtext");
+
+                    b.Property<long>("Timestamp")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("NewsId");
+
+                    b.ToTable("NewsEntries");
                 });
 
             modelBuilder.Entity("LBPUnion.ProjectLighthouse.Types.Photo", b =>
@@ -795,6 +846,17 @@ namespace ProjectLighthouse.Migrations
                     b.HasKey("TokenId");
 
                     b.ToTable("WebTokens");
+                });
+
+            modelBuilder.Entity("LBPUnion.ProjectLighthouse.Types.Activity.ActivityEntry", b =>
+                {
+                    b.HasOne("LBPUnion.ProjectLighthouse.Types.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("LBPUnion.ProjectLighthouse.Types.AuthenticationAttempt", b =>

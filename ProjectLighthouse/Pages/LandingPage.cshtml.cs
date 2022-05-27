@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 using LBPUnion.ProjectLighthouse.Helpers;
 using LBPUnion.ProjectLighthouse.Pages.Layouts;
 using LBPUnion.ProjectLighthouse.Types;
+using LBPUnion.ProjectLighthouse.Types.News;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +21,8 @@ public class LandingPage : BaseLayout
     public int PlayersOnlineCount;
     public LandingPage(Database database) : base(database)
     {}
+
+    public NewsEntry? NewsEntry;
 
     [UsedImplicitly]
     public async Task<IActionResult> OnGet()
@@ -37,6 +40,8 @@ public class LandingPage : BaseLayout
         List<int> userIds = await this.Database.LastContacts.Where(l => TimestampHelper.Timestamp - l.Timestamp < 300).Select(l => l.UserId).ToListAsync();
 
         this.PlayersOnline = await this.Database.Users.Where(u => userIds.Contains(u.UserId)).ToListAsync();
+
+        this.NewsEntry = await this.Database.NewsEntries.OrderBy(n => n.Timestamp).FirstOrDefaultAsync();
         return this.Page();
     }
 }
