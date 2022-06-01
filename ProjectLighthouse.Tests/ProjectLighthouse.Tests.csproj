@@ -40,8 +40,4 @@
         <ProjectReference Include="..\ProjectLighthouse.Servers.Website\ProjectLighthouse.Servers.Website.csproj" />
         <ProjectReference Include="..\ProjectLighthouse\ProjectLighthouse.csproj" />
     </ItemGroup>
-
-    <ItemGroup>
-        <Compile Remove="Tests\SerializerTests.cs"/>
-    </ItemGroup>
 </Project>

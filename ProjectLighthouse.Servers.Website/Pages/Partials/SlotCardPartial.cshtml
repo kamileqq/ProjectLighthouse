@@ -40,23 +40,15 @@
     <div class="cardStats">
         @if (showLink)
         {
-        <h2>
-            @if (Model.TeamPick)
-            {
-                <i class="purple award down icon" title="TeamPick"></i>
-            }
-            <a href="~/slot/@Model.SlotId">@slotName</a>
-        </h2>
+            <h2>
+                <a href="~/slot/@Model.SlotId">@slotName</a>
+            </h2>
         }
         else
         {
-        <h1>
-            @if (Model.TeamPick)
-            {
-                <i class="purple award down icon" title="TeamPick"></i>
-            }
-            @slotName
-        </h1>
+            <h1>
+                @slotName
+            </h1>
         }
         <div class="cardStatsUnderTitle">
             <i class="pink heart icon" title="Hearts"></i> <span>@Model.Hearts</span>
@@ -69,7 +61,6 @@
                 <i class="yellow star icon" title="LBP1 Stars"></i>
                 <span>@Model.RatingLBP1</span>
             }
-
         </div>
         <p>
             <i>Created by <a href="/user/@Model.Creator?.UserId">@Model.Creator?.Username</a> for @Model.GameVersion.ToPrettyString()</i>

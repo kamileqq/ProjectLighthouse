@@ -9,9 +9,6 @@ using LBPUnion.ProjectLighthouse.PlayerData.Profiles;
 using LBPUnion.ProjectLighthouse.PlayerData.Reviews;
 using LBPUnion.ProjectLighthouse.Serialization;
 using LBPUnion.ProjectLighthouse.Types;
-using LBPUnion.ProjectLighthouse.Types.Activity;
-using LBPUnion.ProjectLighthouse.Types.Levels;
-using LBPUnion.ProjectLighthouse.Types.Reviews;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -27,21 +24,6 @@ public class ReviewController : ControllerBase
     public ReviewController(Database database)
     {
         this.database = database;
-    }
-
-    [HttpGet("review/user/{slotId:int}/{reviewerName}")]
-    public async Task<IActionResult> GetReview(int slotId, string reviewerName)
-    {
-        Slot? slot = await this.database.Slots.FirstOrDefaultAsync(s => s.SlotId == slotId);
-        if (slot == null) return this.NotFound();
-
-        User? reviewer = await this.database.Users.FirstOrDefaultAsync(u => u.Username == reviewerName);
-        if (reviewer == null) return this.NotFound();
-
-        Review? review = await this.database.Reviews.FirstOrDefaultAsync(r => r.ReviewerId == reviewer.UserId && r.SlotId == slot.SlotId);
-        if (review == null) return this.NotFound();
-
-        return this.Ok(review.Serialize());
     }
 
     // LBP1 rating
@@ -102,20 +84,6 @@ public class ReviewController : ControllerBase
 
         await this.database.SaveChangesAsync();
 
-        this.database.ActivityLog.Add
-        (
-            new ActivityEntry
-            {
-                User = user,
-                UserId = user.UserId,
-                RelatedId = ratedLevel.RatedLevelId,
-                Timestamp = TimestampHelper.TimestampMillis,
-                Type = EventType.DpadRateLevel,
-            }
-        );
-
-        await this.database.SaveChangesAsync();
-
         return this.Ok();
     }
 
@@ -164,20 +132,6 @@ public class ReviewController : ControllerBase
         }
 
         ratedLevel.Rating = newReview.Thumb;
-
-        await this.database.SaveChangesAsync();
-
-        this.database.ActivityLog.Add
-        (
-            new ActivityEntry
-            {
-                User = user,
-                UserId = user.UserId,
-                RelatedId = review.ReviewId,
-                Type = EventType.ReviewLevel,
-                Timestamp = review.Timestamp,
-            }
-        );
 
         await this.database.SaveChangesAsync();
 

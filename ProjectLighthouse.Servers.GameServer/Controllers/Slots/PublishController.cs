@@ -197,19 +197,6 @@ public class PublishController : ControllerBase
             "New level published!",
             $"**{user.Username}** just published a new level: [**{slot.Name}**]({ServerConfiguration.Instance.ExternalUrl}/slot/{slot.SlotId})\n{slot.Description}"
         );
-        this.database.ActivityLog.Add
-        (
-            new ActivityEntry
-            {
-                User = user,
-                UserId = user.UserId,
-                Timestamp = slot.FirstUploaded,
-                Type = EventType.PublishLevel,
-                RelatedId = slot.SlotId,
-            }
-        );
-
-        await this.database.SaveChangesAsync();
 
         return this.Ok(slot.Serialize(gameToken.GameVersion));
     }

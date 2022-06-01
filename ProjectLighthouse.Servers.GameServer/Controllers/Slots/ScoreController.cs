@@ -7,10 +7,7 @@ using LBPUnion.ProjectLighthouse.PlayerData;
 using LBPUnion.ProjectLighthouse.PlayerData.Profiles;
 using LBPUnion.ProjectLighthouse.Serialization;
 using LBPUnion.ProjectLighthouse.Types;
-using LBPUnion.ProjectLighthouse.Types.Activity;
-using LBPUnion.ProjectLighthouse.Types.Levels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace LBPUnion.ProjectLighthouse.Servers.GameServer.Controllers.Slots;
 
@@ -71,8 +68,7 @@ public class ScoreController : ControllerBase
             .Where(s => s.PlayerIdCollection == score.PlayerIdCollection)
             .Where(s => s.Type == score.Type);
 
-        bool isExistingScore = existingScore.Any();
-        if (isExistingScore)
+        if (existingScore.Any())
         {
             Score first = existingScore.First(s => s.SlotId == score.SlotId);
             score.ScoreId = first.ScoreId;
